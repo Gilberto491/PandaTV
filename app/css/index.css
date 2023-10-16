@@ -1,0 +1,108 @@
+header { /* BARRA DE CIMA */
+	width: 100%;
+	height: 10px;
+	background-image: linear-gradient(rgb(55, 192, 255), rgb(55, 192, 255), rgb(55, 192, 255));
+	z-index: 2;
+	position: relative;
+}
+
+header #logotipo { /* LOGOTIPO DE CIMA */
+	position: absolute;
+	margin-left: 5px;
+	top: 45px;
+	height: 120px;
+	z-index: 3;
+}
+
+#botoes { /** BOTÕES **/
+	position: absolute;
+	font-size: 25px;
+	top: 35px;
+	margin-left: 750px;
+	display: inline-block;
+	font-family: "OpenSans";
+}
+
+#perfil { /** BOTÕES **/
+	position: absolute;
+	font-size: 25px;
+	top: 35px;
+	margin-left: 20%;
+	display: inline-block;
+	font-family: "OpenSans";
+}
+
+ #nomesite { /* NOME PANDA */ /*NÃO ESTÁ MUDANDO O TAMANHO DA FONTE */
+	font-family: 'Arial-Black';
+	padding-left: 150px;
+	margin-top: 50px;
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+} 
+
+#videos { /* POSIÇÃO DA PARTE VIDEO */
+	position: relative;
+	top: 50px;
+}
+
+#videos h2 { /* TRAILERS/VIDEOS EM ALTA */
+	color: rgb(255, 255, 255);
+	font-family: 'OpenSans-Light';
+	font-size: 40px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.filmes video{
+    width: 320px;
+    height: 240px;
+    margin-right: 25px;
+}
+
+.flex{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+body{
+    background-color: rgb(0, 0, 0); /** FUNDO DO SITE **/
+}
+
+.espacamento {
+	margin-top: 60px;
+}
+
+.sectionVideos {
+	margin-left: 36px;
+}
+
+/* Estilização do ícone do menu hamburguer */
+.menu-icon {
+	cursor: pointer;
+}
+
+.bar {
+	width: 25px;
+	height: 3px;
+	background-color: white;
+	margin: 5px 0;
+}
+
+  /* Esconder a lista de itens do menu */
+.menu-list {
+	display: none;
+	list-style: none;
+	padding: 0;
+}
+
+  /* Estilização adicional do menu */
+.menu-list li {
+	margin: 10px 0;
+}
+
+  /* Adicione estilos de mídia para tornar o menu responsivo */
+@media (max-width: 768px) {
+	.menu-list {
+	  display: block; /* Mostrar a lista de itens do menu quando a tela for pequena o suficiente */
+	}
+}

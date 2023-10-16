@@ -1,0 +1,66 @@
+footer { /* ESPAÇO EMBAIXO DOS VIDEOS */
+	margin-top: 100px;
+}
+
+footer .row-s4 { /* BARRA DE BAIXO */
+	height: 10px;
+	background-image: linear-gradient(rgb(32, 155, 212), rgb(32, 155, 212), rgb(32, 155, 212));
+}
+
+footer .logotipo { /* LOGOTIPO DE BAIXO */
+	margin-top: 25px;
+	height: 120px;
+	margin-left: -700px;
+}
+
+footer .pull-left { /* Copright PandaTV 2023 */
+	font-family: 'OpenSans';
+	font-size: 15px;
+	color: #fff;
+	margin-top: 160px;
+	margin-left: -370px;					
+}
+
+footer .col-get-in-touch { /* INFORMAÇÕES */
+	margin-top: 30px;
+	margin-left: 70px;
+}
+
+footer .col-popular-post { /* CONFIGURAÇÕES */
+	margin-top: 30px;
+	margin-left: -50px;
+}
+
+footer .row-cols h4 { /* COR - CONFIUGAÇÕES/INFORMAÇÕES */
+	font-family: 'OpenSans';
+	font-size: 15px;
+	color: rgb(255, 255, 255);
+	padding-bottom: 15px;
+	border-bottom: #0d80bf 1px solid; /* LINHA */
+}
+
+footer .col-get-in-touch address { /* BOTÃO LOCALIZAÇÃO */
+	color: rgb(255, 255, 255);
+	font-family: Arial;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+footer .col-get-in-touch address span {
+	display: inline-block;
+}
+
+footer .col-get-in-touch address i { /* POSIÇÃO BOTÃO LOCALIZAÇÃO */
+	position: relative;
+	top: 1px;
+}
+
+footer .col-get-in-touch i { /* COR ICONES */
+	color: #0d80bf;
+	font-size: 25px;
+	margin: 0 6px;
+}
+
+footer .col-get-in-touch a { /* COR - CONTATO */
+	color: rgb(255, 255, 255);
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PandaTV - NomeUsuario</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../lib/owl.carousel/owl-carousel/owl.carousel.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/footer.css">
+</head>
+
+<body>
+
+	<header>
+		<div class="container pull-left">
+			<img id="logotipo" src="../img/panda-logo.png" alt="Logotipo">
+		</div>
+	</header>
+
+	<header>
+		<div class="container">
+		<div class="text-center">
+			<nav id="perfil">
+			<!-- Ícone do menu hamburguer -->
+			<div class="menu-icon" onclick="toggleMenu()">
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+			</div>
+			
+			<!-- Lista de itens do menu -->
+			<ul class="menu-list">
+				<li><a href="../pages/perfil.html"><font color="white">Perfil</font></a></li>
+				<li><a href="../pages/sobre.html"><font color="white">Sobre</font></a></li>
+				<li><a href="../pages/canaisParceiros.html"><font color="white">Canais</font></a></li>
+			</ul>
+			</nav>
+		</div>
+		</div>
+	</header>
+
+	<div id="nomesite"><h1>PandaTV</h1></div>
+
+	<section class="sectionVideos">
+
+		<div id="videos" class="container"><div class="text-center"><h2>TRAILERS EM ALTA</h2></div>
+
+			<section class="filmes flex">
+				<video poster="../posters/Aranhaverso.jpg" controls><source src="../trailers/Aranhaverso.mp4"></video>
+				<video poster="../posters/Guardiões das Galaxias 3.png" controls><source src="../trailers/Guardiões das Galaxias 3.mp4"></video>
+				<video poster="../posters/Pantera 2.jpg" controls><source src="../trailers/Pantera 2.mp4"></video>
+
+				<video poster="../posters/Homem Formiga 3.jpg" controls><source src="../trailers/Homem Formiga 3.mp4"></video>
+				<video poster="../posters/The Flash.jpg" controls><source src="../trailers/The Flash.mp4"></video>
+				<video poster="../posters/Transformes 6.webp" controls><source src="../trailers/Transformes 6.mp4"></video>
+				<video poster="../posters/VelozesFuriosos10.jpg" controls><source src="../trailers/Velozes e Furiosos 10.mp4"></video>
+				<video poster="../posters/GranTurismo.jpg" controls><source src="../trailers/Gran Turismo.mp4"></video>
+				<video poster="../posters/Drive to Survive 5.jpg" controls><source src="../trailers/Drive to Survive 5.mp4"></video>
+				
+			</section>
+		</div>
+
+		<div id="videos" class="container"><div class="text-center"><h2>VIDEOS EM ALTA</h2></div>
+			<section class="filmes flex">
+				<video poster="../posters/Avatar 2.jpg" controls><source src="../trailers/Avatar 2.mp4"></video>
+				<video poster="../posters/Mario.jpg" controls><source src="../trailers/Mario.mp4"></video>
+				<video poster="../posters/Elementos.jpg" controls><source src="../trailers/Velozes e Furiosos 10.mp4"></video>
+				<video poster="../posters/The Last of Us.jpg" controls><source src="../trailers/The Last of Us.mp4"></video>
+				<video poster="../posters/Oppenheimer.jpg" controls><source src="../trailers/Velozes e Furiosos 10.mp4"></video>
+				<video poster="../posters/Creed.jpg" controls><source src="../trailers/Velozes e Furiosos 10.mp4"></video>
+			</section>
+		</div>
+	</section>
+
+	<footer>
+		<div class="row-s4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 text-center">
+					</div>
+
+					<div class="col-md-9">
+						<div class="row row-cols">
+							<div class="col-md-4 col-popular-post">
+								<h4><a href="../pages/privacidade.html" target="_blank">Privacidade</a></h4>
+								<h4><a href="../pages/suporte.html">Suporte</a></h4>
+							</div>
+
+							<div class="col-md-4 col-get-in-touch">
+								<h4>Informações</h4>
+
+								<address><i class="fa fa-map-marker"></i><span>Porto Alegre - RS, Brasil</span></address>
+								<p><a href="tel:1855ORCITY"> <i class="fa fa-phone"> </i>Contato: +55 (51) 1234-56789</a></p>
+								<ul class="list-unstyled">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+	<script>
+		function toggleMenu() {
+			var menuList = document.querySelector('.menu-list');
+			menuList.style.display = (menuList.style.display === 'block') ? 'none' : 'block';
+		}
+	</script>
+</body>
+</html>

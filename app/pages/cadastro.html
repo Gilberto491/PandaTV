@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Cadastro</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+</head>
+<body>
+	<div id="loadingIndicator" style="display: none;">
+        Carregando...
+    </div>
+	<div class="container">
+		<div class="container-login">
+			<div class="wrap-login">
+				<form class="login-form">
+					<span class="login-form-title">
+						FAÇA O CADASTRO
+					</span>
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+						<input class="input-form" type="text" name="nome" autocomplete="off" required>
+						<span class="focus-input-form" data-placeholder="NOME COMPLETO"></span>
+					</div>
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+						<input class="input-form" type="text" name="username" autocomplete="off" required>
+						<span class="focus-input-form" data-placeholder="NOME DE USUÁRIO"></span>
+					</div>
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+						<input class="input-form" type="text" name="email" autocomplete="off" required>
+						<span class="focus-input-form" data-placeholder="E-MAIL"></span>
+					</div>
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+						<input class="input-form" type="text" name="telefone" autocomplete="off" required>
+						<span class="focus-input-form" data-placeholder="TELEFONE"></span>
+					</div>
+
+					<div class="wrap-input margin-bottom-35">
+						<input class="input-form" type="password" name="senha" required>
+						<span class="focus-input-form" data-placeholder="SENHA"></span>
+					</div>
+
+					<div class="container-login-form-btn" id="cadastro-button">
+						<button class="login-form-btn">
+							CADASTRAR-SE
+						</button>
+					</div>
+
+				</form>
+			</div>
+			<img src="../img/panda-logo.png" width="300" height="300" class="margin-left-50" alt="panda"/>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	<script>
+		$(document).ready(function() {
+			// Vincule a função login() a um evento de clique no botão de login
+			$("#cadastro-button").click(function(event) {
+				event.preventDefault(); // Evite que o formulário seja enviado normalmente
+				cadastro(); 
+			});
+
+			function cadastro() {
+				let nomeCompleto = $("input[name='nome']").val();
+				let nomeUsuario = $("input[name='username']").val();
+				let email = $("input[name='email']").val();
+				let telefone = $("input[name='telefone']").val();
+				let senha = $("input[name='password']").val();
+
+				// Fazer uma solicitação AJAX para o servidor
+				$.ajax({
+					url: "http://localhost:8080/usuario/", 
+					crossDomain: true,
+					type: "POST",
+					data: JSON.stringify({
+						nomeCompleto: nomeCompleto,
+						nomeUsuario: nomeUsuario,
+						email: email,
+						telefone: telefone,
+						senha: senha
+					}),
+					headers: {
+           				'Accept': 'application/json, text/plain, */*',
+            			'Content-Type': 'application/json',
+						
+                    },
+					beforeSend: function() {
+						$("#loadingIndicator").show();
+					},
+					success: function(response) {
+							window.location.href = "index.html";
+							toastr.success("cadastrado com sucesso");
+					},
+					error: function() {
+						toastr.error("cadastro falhou. Verifique se todos os campos estão preenchidos.");
+					},
+					complete: function() {
+						$("#loadingIndicator").hide();
+					}
+				});
+			}
+		});
+
+		let inputs = document.getElementsByClassName('input-form');
+			for (let input of inputs) {
+				input.addEventListener("blur", function() {
+					if(input.value.trim() != ""){
+						input.classList.add("has-val");
+					} else {
+						input.classList.remove("has-val");
+					}
+				});
+			}
+	</script>
+</body>
+</html>

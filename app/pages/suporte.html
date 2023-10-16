@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Suporte</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="../css/suporte.css">
+</head>
+<body>
+	
+	<div class="container">
+		<div class="container-login">
+			<div class="wrap-login">
+				<form class="login-form">
+					<span class="login-form-title">
+						RELATE O SEU PROBLEMA
+					</span>
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+						<input class="input-form" type="text" name="usuario" autocomplete="off" id="usuario" required>
+						<span class="focus-input-form" data-placeholder="USUÁRIO"></span>
+					</div>
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+						<input class="input-form" type="text" name="email" autocomplete="off" id="email" required>
+						<span class="focus-input-form" data-placeholder="E-MAIL"></span>
+					</div>
+
+					<div class="wrap-input margin-bottom-35">
+						<input class="input-form" type="text" name="relato" id="problema" required>
+						<span class="focus-input-form" data-placeholder="RELATE O SEU PROBLEMA"></span>
+					</div>
+
+					<div class="container-login-form-btn">
+						<label for="fileInput" class="login-form-btn">
+						ENVIAR PRINTS
+						</label>
+						<input type="file" id="fileInput" style="display: none;" accept="image/*" multiple>
+					</div>
+					<div id="imagePreview" style="display: none;">
+						<ul id="previewList"></ul>
+					</div>
+
+					<div class="container-login-form-btn">
+						<button type="submit"  class="login-form-btn" id="meuBotao">
+							ENVIAR
+						</button>
+					</div>
+
+				</form>
+			</div>
+			<img src="../img/panda-logo.png" width="300" height="300" class="margin-left-50" />
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	<script>
+		const fileInput = document.getElementById('fileInput');
+		const imagePreview = document.getElementById('imagePreview');
+		const previewList = document.getElementById('previewList');
+		let usuario = $("input[name='usuario']").val();
+		const email = document.getElementById('email').value;
+		const problema = document.getElementById('problema').value;
+	
+		toastr.options.positionClass = 'toast-top-right';
+		toastr.options.timeOut = 3000;
+		toastr.options.progressBar = true;
+
+		fileInput.addEventListener('change', function () {
+		const files = fileInput.files;
+		if (files.length > 0) {
+			imagePreview.style.display = 'block';
+			previewList.innerHTML = ''; // Limpa a lista de prévias
+	
+			for (let i = 0; i < files.length; i++) {
+				const listItem = document.createElement('li');
+				listItem.textContent = files[i].name;
+				previewList.appendChild(listItem);
+			}
+		} else {
+			imagePreview.style.display = 'none';
+		}
+		});
+
+		function minhaFuncao() {
+			if(usuario != "") {
+				toastr.success("enviado com sucesso");
+			}
+		}
+
+		// Obtenha o botão pelo ID
+		const botao = document.getElementById("meuBotao");
+
+		// Associe a função ao evento 'click' do botão
+		botao.addEventListener("click", minhaFuncao);
+
+		let inputs = document.getElementsByClassName('input-form');
+			for (let input of inputs) {
+				input.addEventListener("blur", function() {
+					if(input.value.trim() != ""){
+						input.classList.add("has-val");
+					} else {
+						input.classList.remove("has-val");
+					}
+				});
+			}
+	</script>
+	
+</body>
+</html>
