@@ -25,7 +25,7 @@
 
 					<div class="wrap-input margin-top-35 margin-bottom-35">
 						<input class="input-form" type="text" name="email" autocomplete="off" required>
-						<span class="focus-input-form" data-placeholder="E-mail ou Usuário"></span>
+						<span class="focus-input-form" data-placeholder="Usuário"></span>
 					</div>
 
 					<div class="wrap-input margin-bottom-35">
@@ -84,10 +84,10 @@
 			toastr.options.progressBar = true;
 	
 			function login() {
-				const email = $("input[name='email']").val();
+				const nomeUsuario = $("input[name='email']").val();
 				const senha = $("input[name='password']").val();
 	
-				if (email === "" || senha === "") {
+				if (nomeUsuario === "" || senha === "") {
 					toastr.error("Não deixe nenhum campo vazio");
 					return;
 				}
@@ -95,24 +95,24 @@
 				$.ajax({
 					url: "http://localhost:8080/usuario/login",
 					type: "POST",
-					contentType: "application/json",
+					contentType: "application/json;charset=UTF-8",
+					headers: {
+						'Accept': 'application/json, text/plain, */*',
+						'Content-Type': 'application/json',
+					},
 					data: JSON.stringify({
-						email: email,
+						nomeUsuario: nomeUsuario,
 						senha: senha
 					}),
 					beforeSend: function() {
 						$("#loadingIndicator").show();
 					},
 					success: function(response) {
-						if (response === "login_sucesso") {
-							// Redirecionar ou executar ações apropriadas após o login bem-sucedido
-							window.location.href = "pages/index.html";
-						} else {
-							toastr.error("Login falhou. Verifique suas credenciais.");
-						}
+						// Redirecionar ou executar ações apropriadas após o login bem-sucedido
+						window.location.href = "pages/index.html";
 					},
 					error: function() {
-						toastr.error("Ocorreu um erro durante a solicitação AJAX.");
+						toastr.error("Credenciais inválidas");
 					},
 					complete: function() {
 						// Este código é executado após a conclusão da solicitação AJAX

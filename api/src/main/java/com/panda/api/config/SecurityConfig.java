@@ -19,6 +19,7 @@ public class SecurityConfig {
         http.csrf().disable().cors().disable().authorizeHttpRequests()
                 .antMatchers(HttpMethod.POST, "/usuario/*").permitAll()
                 .antMatchers(HttpMethod.GET, "/usuario/*").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/usuario/*").permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         return http.build();

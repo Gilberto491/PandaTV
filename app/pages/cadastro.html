@@ -70,7 +70,7 @@
 				let nomeUsuario = $("input[name='username']").val();
 				let email = $("input[name='email']").val();
 				let telefone = $("input[name='telefone']").val();
-				let senha = $("input[name='password']").val();
+				let senha = $("input[name='senha']").val();
 
 				// Fazer uma solicitação AJAX para o servidor
 				$.ajax({
@@ -85,8 +85,8 @@
 						senha: senha
 					}),
 					headers: {
-           				'Accept': 'application/json, text/plain, */*',
-            			'Content-Type': 'application/json',
+						'Accept': 'application/json, text/plain, */*',
+						'Content-Type': 'application/json',
 						
                     },
 					beforeSend: function() {

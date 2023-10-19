@@ -58,10 +58,10 @@ public class UsuarioController {
     @PostMapping("/login")
     public ResponseEntity<String> fazerLogin(@RequestBody LoginRequest loginRequest) {
         // Verificar se as credenciais são válidas
-        Usuario usuario = usuarioService.login(loginRequest.getNomeUsuario(), loginRequest.getEmail(), loginRequest.getSenha());
+        Usuario usuario = usuarioService.login(loginRequest.getNomeUsuario(), loginRequest.getSenha());
 
         if (usuario != null) {
-            return ResponseEntity.ok("Login bem-sucedido!");
+            return ResponseEntity.status(200).build();
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
         }

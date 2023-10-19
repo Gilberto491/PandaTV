@@ -33,12 +33,11 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
     }
 
-    public Usuario login(String nomeUsuario, String email, String senha) {
-        Usuario usuario = usuarioRepository.findByNomeUsuarioOrEmail(nomeUsuario, email);
-
+    public Usuario login(String nomeUsuario, String senha) {
+        Usuario usuario = usuarioRepository.findByNomeUsuario(nomeUsuario);
         if (usuario != null) {
             // Agora, verifique se a senha fornecida corresponde à senha armazenada para o usuário
-            if (verificarSenha(senha)) {
+            if (verificarSenha(senha, usuario.getSenha())) {
                 return usuario; // Credenciais válidas, retorne o objeto do usuário
             }
         }
@@ -46,7 +45,12 @@ public class UsuarioService {
         return null; // Credenciais inválidas
     }
 
-    private boolean verificarSenha(String senhaFornecida) {
-        return true;
+    private boolean verificarSenha(String senha, String senhaEnviada) {
+        Usuario usuario = usuarioRepository.findBySenha(senha);
+        if (usuario != null) {
+            return senha.equalsIgnoreCase(senhaEnviada);
+
+        }
+        return false;
     }
 }

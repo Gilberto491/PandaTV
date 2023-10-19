@@ -17,8 +17,6 @@ public class CorsConfiguration implements WebMvcConfigurer {
                             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                             .allowedHeaders("Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization")
                             .allowCredentials(true);
-                            // Adicione isso para expor o cabeçalho "Access-Control-Allow-Origin"
-
             }
         };
     }
